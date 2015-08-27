@@ -7,6 +7,12 @@ import android.widget.TextView;
 
 /**
  * Created by akhil on 8/22/2015.
+ * Use static member createStopWatch to create and return a single Stopwatch object 
+ * Params :
+ * UI thread Handler
+ * Start Button id 
+ * TextView id where the time is being displayed
+ * stop button id // completely useless will remove it 
  */
 
 public class StopWatch {
