@@ -1,16 +1,29 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" tools:context="com.nvworks.studyapp.selectSchedule"
     android:background="@color/backgrounds"
-    android:clickable="true">
-
-    <!-- TODO: Update blank fragment layout -->
-   <android.support.v7.widget.RecyclerView
-       android:background="@color/backgrounds"
-       android:layout_width="fill_parent"
-       android:layout_height="fill_parent"
-       ></android.support.v7.widget.RecyclerView>
+    android:clickable="true"
+    android:id="@+id/selSchFrag">
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello"
 
-</FrameLayout>
+        android:textSize="20sp"
+        android:id="@+id/textView" />
+
+    <android.support.v7.widget.RecyclerView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerView"
+        android:layout_below="@+id/textView"
+        android:background="@color/Accent"
+        />
+
+
+
+
+</RelativeLayout>

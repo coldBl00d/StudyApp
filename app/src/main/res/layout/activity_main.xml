@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nvworks.studyapp.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/main_topFrag"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+
+
+        ></RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/main_topFrag"
+        android:layout_marginBottom="0dp"
+        android:id="@+id/main_bottomFrag"
+
+
+        ></RelativeLayout>
+
+
+
+</RelativeLayout>

@@ -9,13 +9,13 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name=".StudyMate"
-            android:label="@string/title_activity_study_mate" >
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

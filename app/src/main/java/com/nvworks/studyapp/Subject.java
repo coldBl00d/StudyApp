@@ -7,8 +7,14 @@ import android.graphics.Bitmap;
  */
 public class Subject {
     private int id;
-    private int name;
-    private Bitmap image;
+    private String name;
+    private Bitmap image=null;
+
+    public Subject(int i, String name)
+    {
+        id = i;
+        this.name = name;
+    }
 
     public int getId() {
         return id;
@@ -18,11 +24,11 @@ public class Subject {
         this.id = id;
     }
 
-    public int getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
     }
 
