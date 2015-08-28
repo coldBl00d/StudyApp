@@ -42,14 +42,14 @@
     </RelativeLayout>
 
 
-    <fragment
+    <!--<fragment
 
         android:layout_width="280dp"
         android:layout_height="match_parent"
         app:layout="@layout/fragment_navigation_drawer"
         android:layout_gravity="start"
         android:name="com.nvworks.studyapp.NavigationDrawerFragment"
-        tools:layout="@layout/fragment_navigation_drawer" />
+        tools:layout="@layout/fragment_navigation_drawer" /> -->
 
 
 </android.support.v4.widget.DrawerLayout>
