@@ -39,6 +39,7 @@ public class selectSchedule extends Fragment {
         Log.d(className,"Subject adapter recieved");
         recyclerView.setAdapter(subjectAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        Log.d(className,"Returning the view of the Fragment which hold the recycler view");
 
 
         return v;
@@ -47,8 +48,8 @@ public class selectSchedule extends Fragment {
 
     public static List<Subject> getSubjects (){
         List<Subject> subjectList = new ArrayList<>();
-        int[] id={1,2,3,4};
-        String [] subjects = {"Math","English","Physics","Chemistry"};
+        int[] id={1,2,3,4,5,6};
+        String [] subjects = {"Math","English","Physics","Chemistry","Biology","Hindi"};
         for (int i = 0 ; i < id.length ; i  ++ )
         {
             Subject current = new Subject(id[i],subjects[i]);

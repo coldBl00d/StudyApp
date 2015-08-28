@@ -6,27 +6,23 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.zip.Inflater;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link fStopWatch.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link fStopWatch#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class fStopWatch extends Fragment {
+
+public class fStopWatch extends Fragment implements View.OnClickListener {
 
     TextView timerText;
     Button start,stop;
+    ImageView image;
     Handler handler = new Handler();
 
     @Override
@@ -38,17 +34,55 @@ public class fStopWatch extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_f_stop_watch, container, false);
 
-        return inflater.inflate(R.layout.fragment_f_stop_watch,container,false);
+        /**************************************************
+         * *************VIEW INJECTIONS********************
+         * ************************************************/
+
+
+        start = (Button) view.findViewById(R.id.startButton);
+        start.setOnClickListener(this);
+        image = (ImageView) view.findViewById(R.id.elipseImage);
+
+
+
+        /**************************************************
+         * *************VIEW INJECTIONS********************
+         * ************************************************/
+        return view;
     }
 
+
     /**
-     * Called when the Fragment is no longer resumed.  This is generally
-     * tied to {@link android.app.Activity#onPause() Activity.onPause} of the containing
-     * Activity's lifecycle.
+     * Called when a fragment is first attached to its activity.
+     * {@link #onCreate(android.os.Bundle)} will be called after this.
+     *
+     * @param activity
      */
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+    }
+
     @Override
     public void onPause() {
         super.onPause();
+    }
+
+    /**
+     * Called when a view has been clicked.
+     *
+     * @param v The view that was clicked.
+     */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.startButton:
+                getFragmentManager().beginTransaction().add(R.id.main_bottomFrag,new selectSchedule()).commit();
+                break;
+        }
     }
 }

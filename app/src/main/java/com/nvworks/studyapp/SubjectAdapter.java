@@ -40,18 +40,25 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubViewH
     @Override
     public void onBindViewHolder(SubViewHolder holder, int position) {
         Subject current = subjectList.get(position);
-        holder.id.setText(current.getId());
+        Integer id =  current.getId();
+        String sid = id.toString();
+
+        holder.id.setText(sid);
         holder.name.setText(current.getName());
         Log.d(className,"Name and id set" );
 
     }
 
+    /**
+     * Returns the total number of items in the data set hold by the adapter.
+     *
+     * @return The total number of items in this adapter.
+     */
     @Override
     public int getItemCount() {
-        Log.d(className,"GetCount");
-        return 0;
+        Log.d(className,"getting count -  "+ subjectList.size());
+        return subjectList.size();
     }
-
 
     class SubViewHolder extends RecyclerView.ViewHolder
     {

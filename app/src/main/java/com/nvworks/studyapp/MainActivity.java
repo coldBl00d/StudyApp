@@ -8,11 +8,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.support.v7.widget.Toolbar;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity  {
 
     String className = "DEBUG";
+
+    private Button startButton;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +26,9 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         Log.d(className,"Calling LoadFragment Method");
         LoadFragment();
+        toolbar = (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+
 
     }
 
@@ -51,14 +60,16 @@ public class MainActivity extends ActionBarActivity {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         Log.d(className,"Fragment manager created");
-        selectSchedule selectScheduleFragment = new selectSchedule();
         fStopWatch stopWatch = new fStopWatch();
-        transaction.add(R.id.main_topFrag,selectScheduleFragment);
-        Log.d(className,"select Shedule fragment added");
-        //transaction.add(R.id.main_topFrag,stopWatch);
-        //Log.d(className,"stop watch fragment added");
+        transaction.add(R.id.main_topFrag,stopWatch);
         transaction.commit();
-        Log.d(className,"committed");
 
     }
+
+    /**
+     * Called when a view has been clicked.
+     *
+     * @param v The view that was clicked.
+     */
+
 }
