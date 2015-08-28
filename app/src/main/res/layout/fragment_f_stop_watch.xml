@@ -13,53 +13,47 @@
         android:text="0:00:00"
         android:textColor="@color/primaryText"
         android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:paddingBottom="8dp"
         android:id="@+id/timerView"
         android:textSize="35sp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         />
 
-    <Button
+    <!--<Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/startButton"
-        android:drawableTop="@drawable/start"
-
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="5dp"
-        android:background="@color/Primary"
-        android:textColor="#ffffff"
-        android:layout_alignParentBottom="true"
-
-
-
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
         android:text="Stop"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="5dp"
         android:background="@color/Primary"
         android:textColor="#ffffff"
         android:id="@+id/stopButton"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
+    -->
     <ImageView
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:id="@+id/elipseImage"
         android:src="@drawable/elipse"
-        android:adjustViewBounds="false"
-        android:maxWidth="50dp"
-        android:maxHeight="50dp"
-        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
         android:scaleType="fitXY"
+        android:paddingBottom="5dp"
+        android:layout_below="@+id/timerView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
-        />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startButton"
+        android:src="@drawable/start"
+        android:padding="10dp"
+        android:background="@color/Primary"
+        android:layout_below="@+id/timerView"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

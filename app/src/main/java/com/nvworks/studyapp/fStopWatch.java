@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,7 +22,8 @@ import java.util.zip.Inflater;
 public class fStopWatch extends Fragment implements View.OnClickListener {
 
     TextView timerText;
-    Button start,stop;
+    Button stop;
+    ImageButton start;
     ImageView image;
     Handler handler = new Handler();
 
@@ -41,7 +43,7 @@ public class fStopWatch extends Fragment implements View.OnClickListener {
          * ************************************************/
 
 
-        start = (Button) view.findViewById(R.id.startButton);
+        start = (ImageButton) view.findViewById(R.id.startButton);
         start.setOnClickListener(this);
 
 

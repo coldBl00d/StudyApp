@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nvworks.studyapp.MainActivity">
+    tools:context="com.nvworks.studyapp.MainActivity"
+    android:background="#EDE7F6">
 
     <include layout="@layout/app_bar" android:id="@+id/app_bar"/>
 
@@ -21,8 +22,10 @@
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/main_topFrag"
         android:layout_marginBottom="0dp"
+        android:paddingTop="8dp"
         android:paddingRight="16dp"
         android:id="@+id/main_bottomFrag"
+        android:background="#EDE7F6"
 
 
         ></RelativeLayout>
