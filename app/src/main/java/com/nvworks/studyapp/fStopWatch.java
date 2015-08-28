@@ -43,7 +43,6 @@ public class fStopWatch extends Fragment implements View.OnClickListener {
 
         start = (Button) view.findViewById(R.id.startButton);
         start.setOnClickListener(this);
-        image = (ImageView) view.findViewById(R.id.elipseImage);
 
 
 
