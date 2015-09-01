@@ -21,9 +21,9 @@ public class MainDatabase extends SQLiteOpenHelper {
 
     String[][] columnName, columnTypes;
     int[] columnNo;
-    ;
+
     Context context;
-    //  toast maketoast;
+    //toast maketoast;
     String[] CreateSQL, TABLE_NAME, DropSQL;
     SQLiteDatabase db;
     RecyclerView mRecyclerView;

@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 /**
- * Created by akhil on 8/22/2015.
+ * Created by Akhil on 8/22/2015.
  * Use static member createStopWatch to create and return a single Stopwatch object 
  * Params :
  * UI thread Handler
@@ -18,27 +18,30 @@ import android.widget.TextView;
 public class StopWatch {
 
     private long startTime = 0L;
-    long timeInMillies = 0L;
-    long timeSwap = 0L;
-    long finalTime = 0L;
+    private long timeInMillies = 0L;
+    private long timeSwap = 0L;
+    private long finalTime = 0L;
+
+
     private static StopWatch stopwatch=null;
-    public Handler activityHandler;
+
+
+    private Handler activityHandler;
     private TextView textTimer;
     private Button startButton;
     private Button stopButton;
 
-    private StopWatch (Handler h,TextView t,Button sp,Button st) {
+    private StopWatch (Handler h,TextView t) {
         activityHandler = h;
         textTimer = t;
-        startButton=sp;
-        stopButton=st;
+
 
 
     }
 
-    public static StopWatch createStopWatch(Handler h, TextView t,Button sp,Button st) {
+    public static StopWatch createStopWatch(Handler h, TextView t) {
         if (stopwatch == null) {
-            stopwatch = new StopWatch(h,t,sp,st);
+            stopwatch = new StopWatch(h,t);
         }
 
         return stopwatch;
@@ -48,13 +51,13 @@ public class StopWatch {
     {
         startTime = SystemClock.uptimeMillis();
         activityHandler.postDelayed(updateTimerMethod, 0);
-        startButton.setText("Pause");
+
     }
 
     public void pause() {
         timeSwap += timeInMillies;
         activityHandler.removeCallbacks(updateTimerMethod);
-        startButton.setText("Resume");
+
     }
 
     public void stop () {
@@ -63,10 +66,12 @@ public class StopWatch {
         timeInMillies=0L;
         finalTime=0L;
         activityHandler.removeCallbacks(updateTimerMethod);
-        startButton.setText("Start");
-        textTimer.setText("0:00:000");
+        textTimer.setText("0:00:00");
     }
 
+
+
+    //Runnable for counting
     private Runnable updateTimerMethod = new Runnable() {
 
         public void run() {
@@ -75,11 +80,13 @@ public class StopWatch {
 
             int seconds = (int) (finalTime / 1000);
             int minutes = seconds / 60;
+            int hours = minutes/60;
+            minutes = minutes%60;
             seconds = seconds % 60;
             int milliseconds = (int) (finalTime % 1000);
-            textTimer.setText("" + minutes + ":"
-                    + String.format("%02d", seconds) + ":"
-                    + String.format("%03d", milliseconds));
+            textTimer.setText(""+hours+":" + String.format("%02d",minutes) + ":"
+                    + String.format("%02d", seconds)
+                    );
             activityHandler.postDelayed(this, 0);
         }
 

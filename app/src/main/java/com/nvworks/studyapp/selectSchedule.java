@@ -19,13 +19,13 @@ import java.util.List;
  */
 public class selectSchedule extends Fragment {
 
-    String className = "DEBUG";
+
 
     private SubjectAdapter subjectAdapter;
     private RecyclerView recyclerView;
+
     public selectSchedule() {
-        Log.d(className,"Constructing/");
-        // Required empty public constructor
+
     }
 
 
@@ -33,19 +33,17 @@ public class selectSchedule extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_select_schedule, container, false);
-        Log.d(className,"Gonna create the recycler view" );
         recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView);
         subjectAdapter = new SubjectAdapter(getActivity(),getSubjects());
-        Log.d(className,"Subject adapter recieved");
         recyclerView.setAdapter(subjectAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        Log.d(className,"Returning the view of the Fragment which hold the recycler view");
 
 
         return v;
     }
 
 
+    //------------------------------Dummy Data --------------------------------------------------
     public static List<Subject> getSubjects (){
         List<Subject> subjectList = new ArrayList<>();
         int[] id={1,2,3,4,5,6};
