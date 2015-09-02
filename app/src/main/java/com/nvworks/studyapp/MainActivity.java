@@ -3,6 +3,7 @@ package com.nvworks.studyapp;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,12 +25,17 @@ public class MainActivity extends ActionBarActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(className,"Calling LoadFragment Method");
+        Log.d(className, "Calling LoadFragment Method");
         LoadFragment();
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        getSupportActionBar().setTitle("Home");
+
+        NavgationFragment navfrag = (NavgationFragment) getFragmentManager().findFragmentById(R.id.nav_fragment);
+        navfrag.setup((DrawerLayout) findViewById(R.id.maindrawerlayout), toolbar);
     }
 
 

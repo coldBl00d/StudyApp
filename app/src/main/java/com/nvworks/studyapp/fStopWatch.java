@@ -74,8 +74,8 @@ public class fStopWatch extends Fragment implements View.OnClickListener {
         {
             case R.id.startButton:
 
-                //getFragmentManager().beginTransaction().add(R.id.main_bottomFrag,new SelectSchedule()).commit();  //---- Starts the select sub frag
-                //stopWatch.start();                                                                                //----Starts the stopWatch
+                getFragmentManager().beginTransaction().add(R.id.main_bottomFrag,new selectSchedule()).commit();  //---- Starts the select sub frag
+                stopWatch.start();                                                                                //----Starts the stopWatch
                 break;
         }
     }

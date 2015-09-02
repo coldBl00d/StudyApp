@@ -1,5 +1,6 @@
 package com.nvworks.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -129,6 +130,47 @@ public class MainDatabase extends SQLiteOpenHelper {
         db = getWritableDatabase();
         return db;
     }
+
+    public long insert(SQLiteDatabase db , ContentValues contentValues , String  tableName)
+    {
+        try {
+
+            return db.insert(tableName, null, contentValues);
+
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+           // maketoast.makeText(""+e);
+        }
+        return 0;
+    }
+
+    public  int update(SQLiteDatabase db, String tableName, ContentValues contentValues , String selection , String[] selectionArgs)
+    {
+
+        if(db!=null)
+        {
+            return db.update(tableName,contentValues,selection,selectionArgs);
+        }
+
+        return  -1;
+    }
+    public Cursor select(SQLiteDatabase db, String tableName,String[] columnNamesRequired, String selection, String[] selectionArgs,String groupBy,String having,String orderBy)
+    {
+        if(db!=null)
+        {
+            return db.query(tableName,columnNamesRequired,selection,selectionArgs,groupBy,having,orderBy);
+        }
+        else
+            return null;
+
+    }
+
+    public int deleterow(SQLiteDatabase db,String tablename,String whereclause, String[] whereArgs)
+    {
+        return  db.delete(tablename ,whereclause, whereArgs);
+    }
+
+
 
 
 }
