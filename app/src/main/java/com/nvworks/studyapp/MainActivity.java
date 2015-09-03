@@ -78,4 +78,12 @@ public class MainActivity extends ActionBarActivity  {
      * @param v The view that was clicked.
      */
 
+    /**
+     * Take care of popping the fragment back stack or finishing the activity
+     * as appropriate.
+     */
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
 }
