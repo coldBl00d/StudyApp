@@ -5,7 +5,6 @@
     android:gravity="center"
     android:id="@+id/fragRelativeLayout">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <Chronometer
         android:layout_width="wrap_content"
@@ -13,6 +12,7 @@
         android:id="@+id/chronometer"
         android:visibility="gone"
         />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,8 +38,8 @@
         android:id="@+id/stopButton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-    -->
+        android:layout_alignParentEnd="true" /> -->
+
 
     <ImageView
         android:layout_width="200dp"
@@ -52,6 +52,7 @@
         android:layout_below="@+id/timerView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
 
     <ImageButton
         android:layout_width="wrap_content"

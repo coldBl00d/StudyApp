@@ -1,70 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
 
     <include
         android:id="@+id/app_bar"
         layout="@layout/app_bar" />
 
-<android.support.v4.widget.DrawerLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/maindrawerlayout"
-        >
 
-
-
-    <LinearLayout
+    <android.support.v4.widget.DrawerLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.nvworks.studyapp.MainActivity"
-        android:background="#EDE7F6"
-        android:orientation="vertical">
+        android:id="@+id/maindrawerlayout">
 
 
-
-        <RelativeLayout
-            android:id="@+id/main_topFrag"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/app_bar"
-
-
-            ></RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_below="@+id/main_topFrag"
-            android:layout_marginBottom="0dp"
-            android:paddingTop="8dp"
-            android:id="@+id/main_bottomFrag"
+            android:layout_height="match_parent"
+            tools:context="com.nvworks.studyapp.MainActivity"
             android:background="#EDE7F6"
+            android:orientation="vertical">
 
 
-            ></RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/main_topFrag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/app_bar">
+
+            </RelativeLayout>
 
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/main_topFrag"
+                android:layout_marginBottom="0dp"
+                android:paddingTop="8dp"
+                android:id="@+id/main_bottomFrag"
+                android:background="#EDE7F6">
 
-    </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
 
 
-    <fragment
-        android:id="@+id/nav_fragment"
-        android:name="com.nvworks.studyapp.NavgationFragment"
-        android:layout_width="280dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:layout="@layout/fragment_navgation"
-        tools:layout="@layout/fragment_navgation" />
+        <fragment
+            android:id="@+id/nav_fragment"
+            android:name="com.nvworks.studyapp.NavgationFragment"
+            android:layout_width="280dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:layout="@layout/fragment_navgation"
+            tools:layout="@layout/fragment_navgation" />
 
-</android.support.v4.widget.DrawerLayout>
+    </android.support.v4.widget.DrawerLayout>
 
 </LinearLayout>
