@@ -18,14 +18,14 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class selectSchedule extends Fragment {
-
-
-
     private SubjectAdapter subjectAdapter;
     private RecyclerView recyclerView;
 
-    public selectSchedule() {
 
+
+//__________________________________________________________________________________________________
+
+    public selectSchedule() {
     }
 
 
@@ -33,13 +33,15 @@ public class selectSchedule extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_select_schedule, container, false);
-        recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView);
+        setupRecyclerView(v);
+        return v;
+    }
+
+    private void setupRecyclerView(View recyclerContainer) {
+        recyclerView = (RecyclerView) recyclerContainer.findViewById(R.id.recyclerView);
         subjectAdapter = new SubjectAdapter(getActivity(),getSubjects());
         recyclerView.setAdapter(subjectAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-
-        return v;
     }
 
 
@@ -48,15 +50,11 @@ public class selectSchedule extends Fragment {
         List<Subject> subjectList = new ArrayList<>();
         int[] id={1,2,3,4,5,6};
         String [] subjects = {"Math","English","Physics","Chemistry","Biology","Hindi"};
-        for (int i = 0 ; i < id.length ; i  ++ )
-        {
+        for (int i = 0 ; i < id.length ; i  ++ ) {
             Subject current = new Subject(id[i],subjects[i]);
             subjectList.add(current);
         }
-
         return subjectList;
-
     }
-
 
 }

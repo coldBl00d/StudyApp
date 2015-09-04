@@ -18,16 +18,22 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * Injections (View view)
+ *        Write every UI component binding methods such as findViewById
+ *        and Binding Listeners to the component there
+ *        TO KEEP CODE CLEAN
+ */
+
 
 public class fStopWatch extends Fragment implements View.OnClickListener {
 
     private Chrono stopWatch;
+    private Chronometer chronometer;
     private Handler handler = new Handler ();
-
     private TextView timerText;
     private ImageButton start;
     private ImageView image;
-
     private  long pauseCorrection=0L;
 
     @Override
@@ -35,64 +41,20 @@ public class fStopWatch extends Fragment implements View.OnClickListener {
         super.onCreate(savedInstanceState);
     }
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_f_stop_watch, container, false);
+        Injections(view);
+        stopWatch = new Chrono(chronometer, timerText);
+        return view;
+    }
 
-        /**************************************************
-         * *************VIEW INJECTIONS********************
-         * ************************************************/
-
-
+    //Bind all the view components here
+    private void Injections(View view) {
         start = (ImageButton) view.findViewById(R.id.startButton);
         start.setOnClickListener(this);
         timerText = (TextView) view.findViewById(R.id.timerView);
-        Chronometer  chronometer =(Chronometer) view.findViewById(R.id.chronometer);
-
-
-        /**************************************************
-         * *************VIEW INJECTIONS********************
-         * ************************************************/
-        stopWatch = new Chrono(chronometer, timerText);
-
-         return view;
-    }
-
-
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-
-
-    }
-
-
-    @Override
-    public void onPause() {
-        Log.d(this.getClass().getName(),"Calling onPause()");
-        super.onPause();
-
-    }
-
-    /**
-     * Called when the fragment is no longer in use.  This is called
-     * after {@link #onStop()} and before {@link #onDetach()}.
-     */
-    @Override
-    public void onDestroy() {
-        Log.d(this.getClass().getName(),"Calling onDestroy ()");
-        super.onDestroy();
-    }
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.d(this.getClass().getName(),"Calling onResume)");
-
+        chronometer =(Chronometer) view.findViewById(R.id.chronometer);
     }
 
     @Override

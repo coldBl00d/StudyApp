@@ -21,16 +21,17 @@ public class NavgationFragment extends Fragment {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
-
     private Context context;
+
+
+//__________________________________________________________________________________________________
+
     public NavgationFragment() {
-        // Required empty public constructor
+       
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_navgation, container, false);
     }
@@ -39,14 +40,11 @@ public class NavgationFragment extends Fragment {
         mDrawerLayout = drawerlayout;
         mDrawerToggle = new ActionBarDrawerToggle(getActivity(),drawerlayout,toolbar, R.string.open,R.string.close){
 
-
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 getActivity().invalidateOptionsMenu();
                 Log.i("openein", "open");
-
-
             }
 
             @Override
@@ -54,23 +52,17 @@ public class NavgationFragment extends Fragment {
                 super.onDrawerClosed(drawerView);
                 getActivity().invalidateOptionsMenu();
                 Log.i("close","close");
-
             }
 
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 super.onDrawerSlide(drawerView, slideOffset);
-
-
-
-                if(slideOffset<.4)
-                {
+                if(slideOffset<.4) {
                     toolbar.setAlpha(1 - slideOffset);
                 }
-
-
             }
         };
+
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerLayout.post(new Runnable() {
             @Override
@@ -80,8 +72,5 @@ public class NavgationFragment extends Fragment {
         });
 
     }
-
-
-
 
 }

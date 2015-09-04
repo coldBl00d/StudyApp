@@ -16,8 +16,6 @@ import android.support.v7.widget.Toolbar;
 
 public class MainActivity extends ActionBarActivity  {
 
-    String className = "DEBUG";
-
     private Button startButton;
     private Toolbar toolbar;
 
@@ -25,15 +23,15 @@ public class MainActivity extends ActionBarActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(className, "Calling LoadFragment Method");
         LoadFragment();
+        setupToolNav();
+    }
+
+    private void setupToolNav() {
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
-
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
         getSupportActionBar().setTitle("Home");
-
         NavgationFragment navfrag = (NavgationFragment) getFragmentManager().findFragmentById(R.id.nav_fragment);
         navfrag.setup((DrawerLayout) findViewById(R.id.maindrawerlayout), toolbar);
     }
@@ -41,47 +39,27 @@ public class MainActivity extends ActionBarActivity  {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
-        return super.onOptionsItemSelected(item);
+       return super.onOptionsItemSelected(item);
     }
 
     private void LoadFragment (){
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        Log.d(className,"Fragment manager created");
         fStopWatch stopWatch = new fStopWatch();
         transaction.add(R.id.main_topFrag,stopWatch);
         transaction.commit();
-
     }
 
-    /**
-     * Called when a view has been clicked.
-     *
-     * @param v The view that was clicked.
-     */
-
-    /**
-     * Take care of popping the fragment back stack or finishing the activity
-     * as appropriate.
-     */
     @Override
     public void onBackPressed() {
         moveTaskToBack(true);

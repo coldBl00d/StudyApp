@@ -22,7 +22,6 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubViewH
 
     public static final int ICON_HEIGHT = 100;
     public static final int ICON_WIDTH = 100;
-    public static final String CLASS_NAME = "DEBUG";
 
     private LayoutInflater inflater;
     private List<Subject> subjectList = Collections.emptyList();
@@ -57,19 +56,13 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubViewH
         color = colorGenerator.getColor(current.getName());
         drawable=TextDrawable.builder().beginConfig().width(ICON_WIDTH).height(ICON_HEIGHT).endConfig().buildRound(firstLetter, color);
         holder.icon.setImageDrawable(this.drawable);
-
     }
 
-    /**
-     * Returns the total number of items in the data set hold by the adapter.
-     *
-     * @return The total number of items in this adapter.
-     */
+
     @Override
     public int getItemCount() {
         return subjectList.size();
     }
-
 
     class SubViewHolder extends RecyclerView.ViewHolder
     {
