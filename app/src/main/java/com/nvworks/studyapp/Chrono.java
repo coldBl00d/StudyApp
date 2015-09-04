@@ -1,34 +1,46 @@
 package com.nvworks.studyapp;
 
-import android.content.Context;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.os.SystemClock;
 import android.util.Log;
 import android.widget.Chronometer;
 import android.widget.TextView;
 
+
 /**
  * Created by akhil on 9/3/2015.
+ *
+ * This class is the main Chronometer Manager class
+ * Constructor :-
+ *      1.A Chronometer Object
+ *      2.TextView That Need To Be Updated
+ *
+ * Methods:-
+ *      1.startClock [void]
+ *          Starts the stopWatch from 0
+ *          If Called more than one time the stopwatch resets every time snd starts from 0
+ *      2.stopClock [Returns int array]
+ *          stops the stopwatch
+ *          Returns an array of format {hour,minute,seconds}
+ *      3.onPause [Returns long]
+ *          returns the pauseCorrection
+ *          pass this to onResume when resuming the stopWatch
+ *      4.onResume [void]
+ *          param:- pauseCorrection
+ *
+ *
  */
 
 
 public class Chrono  {
 
-    private final TextView timerView;
-    /**
-     * This Class will always return
-     */
 
-
+    private long countUp;
+    private TextView timerView;
     private Chronometer chronometer = null;
     private long baseTime = 0L;
-    //private long elapsedTimeBeforePause = 0L;
-    private long countUp;
     private int hour;
     private int minute;
     private int second;
-    private boolean isRunning= false;
 
 
     public Chrono (Chronometer chronometer,final TextView timerView){
@@ -55,23 +67,30 @@ public class Chrono  {
 
     public void startClock (){
         this.baseTime = SystemClock.elapsedRealtime();
-        Log.d(this.getClass().getName(),"BASE TIME-->"+baseTime);
-        isRunning = true;
         chronometer.setBase(this.baseTime);
         chronometer.start();
-
     }
 
-    public boolean getIsRunning(){
-        return isRunning;
+    public int[] stopClock (){
+        int [] time = {hour,minute,second};
+        this.baseTime= 0L;
+        chronometer.stop();
+        this.timerView.setText("0:00:00");
+        return time;
     }
 
-    public long getBaseTime (){
-        return baseTime;
+    public long pauseClock(){
+        chronometer.stop();
+        Log.d(this.getClass().getName(),"STOPING STOPWATCH");
+        this.baseTime= 0L;
+        return countUp;
     }
 
-    public void setBaseTime(long base){
-        this.baseTime = base;
+    public void resumeClock (long pauseCorrection){
+        chronometer.setBase(SystemClock.elapsedRealtime()-pauseCorrection);
+        chronometer.start();
     }
+
+
 
 }

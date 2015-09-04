@@ -21,20 +21,14 @@ import android.widget.TextView;
 
 public class fStopWatch extends Fragment implements View.OnClickListener {
 
-    TextView timerText;
-    Button stop;
-    ImageButton start;
-    ImageView image;
-    long baseTime;
-    long upTime;
-    SharedPreferences preferences;
-    boolean checkRunningPending=false;
-    NotificationManager nm;
-
-
-
-    Handler handler = new Handler ();
     private Chrono stopWatch;
+    private Handler handler = new Handler ();
+
+    private TextView timerText;
+    private ImageButton start;
+    private ImageView image;
+
+    private  long pauseCorrection=0L;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,8 +40,6 @@ public class fStopWatch extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_f_stop_watch, container, false);
-        preferences = getActivity().getSharedPreferences("BASE_TIME",getActivity().MODE_PRIVATE);
-        checkRunningPending = preferences.getBoolean("RUNNING_PENDING",false);
 
         /**************************************************
          * *************VIEW INJECTIONS********************
@@ -58,17 +50,12 @@ public class fStopWatch extends Fragment implements View.OnClickListener {
         start.setOnClickListener(this);
         timerText = (TextView) view.findViewById(R.id.timerView);
         Chronometer  chronometer =(Chronometer) view.findViewById(R.id.chronometer);
-        nm = (NotificationManager) getActivity().getSystemService(getActivity().NOTIFICATION_SERVICE);
 
 
         /**************************************************
          * *************VIEW INJECTIONS********************
          * ************************************************/
         stopWatch = new Chrono(chronometer, timerText);
-        if (checkRunningPending){
-            stopWatch.setBaseTime(preferences.getLong("baseTime",0L));
-            stopWatch.startClock();
-        }
 
          return view;
     }
@@ -97,24 +84,10 @@ public class fStopWatch extends Fragment implements View.OnClickListener {
     @Override
     public void onDestroy() {
         Log.d(this.getClass().getName(),"Calling onDestroy ()");
-        if (stopWatch.getIsRunning()){
-            Log.d(this.getClass().getName(),"Stop watch base time :"+ stopWatch.getBaseTime());
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putLong("BASE_TIME",stopWatch.getBaseTime());
-            editor.apply();
-            editor.putBoolean("RUNNING_PENDING",true);
-            editor.apply();
-            Log.d(this.getClass().getName(),"Preference values-->"+preferences.getLong("BASE_TIME",0L)+" \n"+preferences.getBoolean("RUNNING_PENDING",false));
-        }
         super.onDestroy();
     }
 
-    /**
-     * Called when the fragment is visible to the user and actively running.
-     * This is generally
-     * tied to {@link android.app.Activity#onResume() Activity.onResume} of the containing
-     * Activity's lifecycle.
-     */
+
     @Override
     public void onResume() {
         super.onResume();
@@ -127,9 +100,8 @@ public class fStopWatch extends Fragment implements View.OnClickListener {
         switch (v.getId())
         {
             case R.id.startButton:
-
-                getFragmentManager().beginTransaction().add(R.id.main_bottomFrag,new selectSchedule()).commit();  //---- Starts the select sub frag
-                stopWatch.startClock();
+                    getFragmentManager().beginTransaction().add(R.id.main_bottomFrag, new selectSchedule()).commit();  //---- Starts the select sub frag
+                    stopWatch.startClock();
                 break;
         }
     }
