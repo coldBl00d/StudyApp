@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
@@ -20,8 +21,8 @@ import java.util.List;
  */
 public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubViewHolder> {
 
-    public static final int ICON_HEIGHT = 100;
-    public static final int ICON_WIDTH = 100;
+    public static final int ICON_HEIGHT = 150;
+    public static final int ICON_WIDTH = 150;
 
     private LayoutInflater inflater;
     private List<Subject> subjectList = Collections.emptyList();
@@ -40,6 +41,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubViewH
     @Override
     public SubViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v =inflater.inflate(R.layout.subject_row,parent,false);
+        //View v = inflater.inflate(R.layout.schedule_row,parent,false);
         SubViewHolder viewHolder = new SubViewHolder(v);
         return viewHolder;
     }
@@ -56,6 +58,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubViewH
         color = colorGenerator.getColor(current.getName());
         drawable=TextDrawable.builder().beginConfig().width(ICON_WIDTH).height(ICON_HEIGHT).endConfig().buildRound(firstLetter, color);
         holder.icon.setImageDrawable(this.drawable);
+        //holder.bar.setBackgroundColor(color);
     }
 
 
@@ -68,11 +71,13 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubViewH
     {
         TextView name;
         ImageView icon;
+        LinearLayout bar;
 
         public SubViewHolder(View itemView) {
             super(itemView);
             name = (TextView) itemView.findViewById(R.id.subjectName);
-            icon = (ImageView) itemView.findViewById(R.id.iconView);
+            icon = (ImageView) itemView.findViewById(R.id.iconView); //schIcon
+            //bar=(LinearLayout)itemView.findViewById(R.id.divider);
         }
     }
 }

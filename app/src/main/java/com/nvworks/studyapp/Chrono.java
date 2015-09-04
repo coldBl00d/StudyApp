@@ -21,10 +21,10 @@ import android.widget.TextView;
  *      2.stopClock [Returns int array]
  *          stops the stopwatch
  *          Returns an array of format {hour,minute,seconds}
- *      3.onPause [Returns long]
+ *      3.pauseClock [Returns long]
  *          returns the pauseCorrection
  *          pass this to onResume when resuming the stopWatch
- *      4.onResume [void]
+ *      4.resumeClock [void]
  *          param:- pauseCorrection
  *
  *
