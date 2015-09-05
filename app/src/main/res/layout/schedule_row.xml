@@ -7,19 +7,21 @@
     android:layout_marginRight="8dp"
     android:layout_marginTop="4dp"
     android:elevation="@dimen/cardview_default_elevation"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:id="@+id/schedule_row_">
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="200dp">
+        android:layout_height="200dp"
+        android:id="@+id/schedule_row_parent">
 
         <RelativeLayout
-            android:id="@+id/relativelayout_bar"
+            android:id="@+id/schedule_row_divider_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:id="@+id/divider"
+                android:id="@+id/schedule_row_divider"
                 android:layout_width="6dp"
                 android:layout_height="201dp"
                 android:background="@color/Accent"
@@ -28,11 +30,11 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/scheduleTitleLayout"
+            android:id="@+id/schedule_row_title_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/relativelayout_bar"
-            android:paddingBottom="16dp"
+            android:layout_toRightOf="@+id/schedule_row_divider_layout"
+            android:paddingBottom="10dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:paddingTop="24dp"
@@ -40,7 +42,7 @@
             >
 
             <TextView
-                android:id="@+id/scheduleTitle"
+                android:id="@+id/schedule_row_title"
                 style="@style/TextAppearance.AppCompat.Title"
 
                 android:layout_width="wrap_content"
@@ -49,67 +51,45 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <!--<ImageView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/scheduleTitle"
+                android:layout_below="@+id/schedule_row_title"
                 android:src="@drawable/clock"
-                android:id="@+id/clockIcon"
+                android:id="@+id/schedule_row_clock_icon"
                 android:paddingTop="1dp"
+                android:paddingRight="2dp"
+                android:backgroundTint="@color/Accent"
 
-                />-->
+
+
+                />
+
+
 
             <TextView
-                android:id="@+id/startTime"
+                android:id="@+id/schedule_row_stat_time"
                 style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/scheduleTitle"
-                android:paddingTop="5dp"
-                android:text="Start 10:00am"
+                android:layout_below="@+id/schedule_row_title"
+                android:paddingTop="6dp"
+                android:text="10:00am"
                 android:textColor="@android:color/secondary_text_dark"
-
+                android:layout_toRightOf="@id/schedule_row_clock_icon"
                 android:textSize="14sp" />
 
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/schTimer"
-            android:layout_toRightOf="@id/relativelayout_bar"
-            android:paddingBottom="8dp"
-            android:paddingLeft="8dp"
-            android:paddingTop="8dp"
-            android:id="@+id/ActionCenter">
-
-            <Button
-                android:id="@+id/stpButton"
-                style="@style/Base.Widget.AppCompat.Button.Borderless"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Change"
-                android:textColor="@color/Accent" />
-
-            <Button
-                android:id="@+id/deletebtn"
-                style="@style/Base.Widget.AppCompat.Button.Borderless"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_toRightOf="@id/stpButton"
-                android:text="Delete"
-                android:textColor="@color/Accent" />
-
-        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:paddingRight="16dp"
-            android:paddingTop="24dp">
+            android:paddingTop="24dp"
+            android:id="@+id/schedule_row_subject_icon">
 
 
             <ImageView
@@ -117,17 +97,16 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:src="@drawable/ic_launcher"
-
-                android:id="@+id/schIcon" />
+                android:id="@+id/schedule_row_subject_image" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/schTimer"
+            android:id="@+id/schedule_row_timer_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/scheduleTitleLayout"
-            android:layout_toRightOf="@+id/relativelayout_bar"
+            android:layout_below="@id/schedule_row_title_layout"
+            android:layout_toRightOf="@+id/schedule_row_divider_layout"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:paddingTop="4dp"
@@ -144,7 +123,7 @@
                 android:text="2"
                 android:textSize="25sp"
                 android:padding="4dp"
-                android:id="@+id/schHour"
+                android:id="@+id/schedule_row_hour_text"
                 android:textStyle="bold"
                 />
 
@@ -152,38 +131,69 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hours"
-                android:layout_toRightOf="@+id/schHour"
+                android:layout_toRightOf="@+id/schedule_row_hour_text"
                 android:paddingTop="16dp"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:gravity="bottom"
-                android:id="@+id/hourStatic"
+                android:id="@+id/schedule_row_hour_static_text"
 
                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/hourStatic"
+                android:layout_toRightOf="@+id/schedule_row_hour_static_text"
                 android:text="20"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 android:padding="4dp"
-                android:id="@+id/schMins"
+                android:id="@+id/schedule_row_minute_text"
                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/staticMins"
+                android:id="@+id/schedule_row_minute_static_text"
                 android:text="Minutes"
-                android:layout_toRightOf="@id/schMins"
+                android:layout_toRightOf="@id/schedule_row_minute_text"
                 android:paddingTop="16dp"
                 android:paddingRight="8dp"
                 android:paddingLeft="8dp"
                 />
 
-            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/schedule_row_timer_layout"
+            android:layout_toRightOf="@id/schedule_row_divider_layout"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:id="@+id/schedule_row_button_layout">
+
+            <Button
+                android:id="@+id/schedule_row_change_button"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Change"
+                android:textColor="@color/Accent" />
+
+            <Button
+                android:id="@+id/schedule_row_delete_button"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/schedule_row_change_button"
+                android:text="Delete"
+                android:textColor="@color/Accent" />
+
+        </RelativeLayout>
+
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>
