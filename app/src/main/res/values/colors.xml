@@ -6,5 +6,7 @@
     <color name="primaryText">#EDE7F6</color>
     <color name="backgrounds">#EDE7F6</color>
 
+    <color name="navDrawerIcon">#8A000000</color>
+    <color name="navDrawerText">#DE000000</color>
 
 </resources>

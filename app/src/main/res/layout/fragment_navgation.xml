@@ -1,15 +1,202 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nvworks.studyapp.NavgationFragment"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    tools:context="com.nvworks.studyapp.NavgationFragment">
 
-
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/navigation_drawer_image_height"
+            android:id="@+id/navDrawerImageView"
+
+            android:layout_alignParentTop="true"
+
+            android:src="@drawable/drawer_image"
+            android:scaleType="centerCrop"
+
+            tools:ignore="contentDescription"/>
+
+        <ImageView
+            android:layout_width="@dimen/navigation_drawer_iconview_width"
+            android:layout_height="@dimen/navigation_drawer_listitem_height"
+            android:id="@+id/navDrawerIconView1"
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/navDrawerImageView"
+
+            android:layout_marginTop="@dimen/between_content_areas"
+
+            android:src="@drawable/home_icon_24"
+            android:scaleType="center"
+            android:tint="@color/navDrawerIcon" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/navigation_drawer_listitem_height"
+            android:id="@+id/navListText1"
+
+            android:layout_below="@+id/navDrawerImageView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@id/navDrawerIconView1"
+            android:layout_toEndOf="@id/navDrawerIconView1"
+            android:layout_marginTop="@dimen/between_content_areas"
+            android:paddingRight="@dimen/activity_vertical_margin"
+            android:paddingEnd="@dimen/activity_vertical_margin"
+
+            android:textSize="@dimen/navigation_drawer_listtext_size"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:textColor="@color/navDrawerText"
+
+            android:gravity="center_vertical"
+            android:text="@string/navigation_drawer_text1"/>
+
+        <ImageView
+            android:layout_width="@dimen/navigation_drawer_iconview_width"
+            android:layout_height="@dimen/navigation_drawer_listitem_height"
+            android:id="@+id/navDrawerIconView2"
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/navDrawerIconView1"
+
+            android:src="@drawable/home_icon_24"
+            android:scaleType="center"
+            android:tint="@color/navDrawerIcon" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/navigation_drawer_listitem_height"
+            android:id="@+id/navListText2"
+
+            android:layout_below="@+id/navListText1"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@id/navDrawerIconView2"
+            android:layout_toEndOf="@id/navDrawerIconView2"
+            android:paddingRight="@dimen/activity_vertical_margin"
+            android:paddingEnd="@dimen/activity_vertical_margin"
+
+            android:textSize="@dimen/navigation_drawer_listtext_size"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:textColor="@color/navDrawerText"
+
+            android:gravity="center_vertical"
+            android:text="@string/navigation_drawer_text2"/>
+
+        <ImageView
+            android:layout_width="@dimen/navigation_drawer_iconview_width"
+            android:layout_height="@dimen/navigation_drawer_listitem_height"
+            android:id="@+id/navDrawerIconView3"
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/navDrawerIconView2"
+
+            android:src="@drawable/home_icon_24"
+            android:scaleType="center"
+            android:tint="@color/navDrawerIcon" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/navigation_drawer_listitem_height"
+            android:id="@+id/navListText3"
+
+            android:layout_below="@+id/navListText2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@id/navDrawerIconView3"
+            android:layout_toEndOf="@id/navDrawerIconView3"
+            android:paddingRight="@dimen/activity_vertical_margin"
+            android:paddingEnd="@dimen/activity_vertical_margin"
+
+            android:textSize="@dimen/navigation_drawer_listtext_size"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:textColor="@color/navDrawerText"
+
+            android:gravity="center_vertical"
+            android:text="@string/navigation_drawer_text3"/>
+
+        <ImageView
+            android:layout_width="@dimen/navigation_drawer_iconview_width"
+            android:layout_height="@dimen/navigation_drawer_listitem_height"
+            android:id="@+id/navDrawerIconView4"
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/navDrawerIconView3"
+
+            android:src="@drawable/home_icon_24"
+            android:scaleType="center"
+            android:tint="@color/navDrawerIcon" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/navigation_drawer_listitem_height"
+            android:id="@+id/navListText4"
+
+            android:layout_below="@+id/navListText3"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@id/navDrawerIconView4"
+            android:layout_toEndOf="@id/navDrawerIconView4"
+            android:paddingRight="@dimen/activity_vertical_margin"
+            android:paddingEnd="@dimen/activity_vertical_margin"
+
+            android:textSize="@dimen/navigation_drawer_listtext_size"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:textColor="@color/navDrawerText"
+
+            android:gravity="center_vertical"
+            android:text="@string/navigation_drawer_text4"/>
+
+        <ImageView
+            android:layout_width="@dimen/navigation_drawer_iconview_width"
+            android:layout_height="@dimen/navigation_drawer_listitem_height"
+            android:id="@+id/navDrawerIconView5"
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/navDrawerIconView4"
+
+            android:src="@drawable/home_icon_24"
+            android:scaleType="center"
+            android:tint="@color/navDrawerIcon" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/navigation_drawer_listitem_height"
+            android:id="@+id/navListText5"
+
+            android:layout_below="@+id/navListText4"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@id/navDrawerIconView5"
+            android:layout_toEndOf="@id/navDrawerIconView5"
+            android:paddingRight="@dimen/activity_vertical_margin"
+            android:paddingEnd="@dimen/activity_vertical_margin"
+
+            android:textSize="@dimen/navigation_drawer_listtext_size"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:textColor="@color/navDrawerText"
+
+            android:gravity="center_vertical"
+            android:text="@string/navigation_drawer_text5"/>
 
 
-</RelativeLayout>
+
+    </RelativeLayout>
+</ScrollView>

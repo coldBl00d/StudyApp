@@ -11,4 +11,10 @@
         <item name="colorAccent">@color/Accent</item>
     </style>
 
+    <style name="NavigationDrawerText" parent="@android:style/TextAppearance">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#DE000000</item>
+    </style>
+
 </resources>
