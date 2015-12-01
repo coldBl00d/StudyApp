@@ -14,16 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class selectSchedule extends Fragment {
     private SubjectAdapter subjectAdapter;
     private RecyclerView recyclerView;
-
-
-
-//__________________________________________________________________________________________________
 
     public selectSchedule() {
     }

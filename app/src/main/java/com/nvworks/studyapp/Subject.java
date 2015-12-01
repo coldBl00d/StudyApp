@@ -9,6 +9,10 @@ public class Subject {
     private int id;
     private String name;
     private Bitmap image=null;
+    private long averageTime=0L;
+    private long  dailyAim;
+    private boolean [] achievement = {false,false,false};
+
 
     public Subject(int i, String name)
     {

@@ -89,6 +89,7 @@ public class Chrono  {
     public void resumeClock (long pauseCorrection){
         chronometer.setBase(SystemClock.elapsedRealtime()-pauseCorrection);
         chronometer.start();
+        //Change this
     }
 
 
